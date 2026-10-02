@@ -4,6 +4,8 @@ declare(strict_types=1);
 use Raxos\Contract\ExceptionInterface;
 use RaxosTests\Error\TestFailure;
 
+covers(Raxos\Error\Exception::class);
+
 it('preserves the previous exception and exposes a stable error payload', function (): void {
     $cause = new RuntimeException('cause');
     $exception = new TestFailure('Invalid input.', previous: $cause);
@@ -29,4 +31,11 @@ it('keeps invalid argument errors usable as native exceptions and JSON responses
     $error = new Raxos\Error\InvalidArgumentException('bad input');
     expect($error->getMessage())->toBe('bad input')->and($error)->toBeInstanceOf(Throwable::class)
         ->and(json_decode(json_encode($error), true)['error_description'])->toBe('bad input');
+});
+
+it('accepts explicit enum and numeric identifiers without exposing native exception traces', function (): void {
+    foreach ([RaxosTests\Error\UnitErrorCode::CUSTOM, new Raxos\Error\ExceptionId(0)] as $code) {
+        $error = new RaxosTests\Error\UnitError('unit', 'details', $code, new RuntimeException('cause'));
+        expect($error->getCode())->toBe($code->value)->and($error->jsonSerialize())->toBe(['code' => $code->value, 'error' => 'unit', 'error_description' => 'details']);
+    }
 });
