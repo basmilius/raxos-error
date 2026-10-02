@@ -1,7 +1,7 @@
 {
     "name": "raxos/error",
     "description": "Error handling related primitives.",
-    "license": "mit",
+    "license": "MIT",
     "minimum-stability": "dev",
     "prefer-stable": true,
     "type": "library",
@@ -19,6 +19,9 @@
     "config": {
         "platform": {
             "php": "8.5"
+        },
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
         }
     },
     "repositories": [
@@ -27,5 +30,20 @@
             "url": "../*",
             "symlink": true
         }
-    ]
+    ],
+    "require": {
+        "php": ">=8.5",
+        "raxos/contract": "*"
+    },
+    "require-dev": {
+        "pestphp/pest": "^5.0"
+    },
+    "autoload-dev": {
+        "classmap": [
+            "tests/Fixtures/"
+        ]
+    },
+    "scripts": {
+        "test": "pest --compact"
+    }
 }
