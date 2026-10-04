@@ -7,13 +7,16 @@ use Raxos\Error\{Exception, ExceptionId};
 
 enum UnitErrorCode: int
 {
+
     case CUSTOM = 42;
+
 }
 
 final class UnitError extends Exception {}
 
 final class UnitIdCaller
 {
+
     public static function staticId(): ExceptionId
     {
         return ExceptionId::guess();
@@ -23,6 +26,7 @@ final class UnitIdCaller
     {
         return ExceptionId::guess();
     }
+
 }
 
 function unitFunctionId(): ExceptionId

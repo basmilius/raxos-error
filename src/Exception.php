@@ -44,6 +44,7 @@ abstract class Exception extends NativeException implements ExceptionInterface
 
     /**
      * {@inheritdoc}
+     *
      * @author Bas Milius <bas@mili.us>
      * @since 2.0.0
      */

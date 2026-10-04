@@ -8,8 +8,10 @@ use Throwable;
 
 final class TestFailure extends Exception
 {
+
     public function __construct(string $message, ?Throwable $previous = null)
     {
         parent::__construct('test_failure', $message, previous: $previous);
     }
+
 }
