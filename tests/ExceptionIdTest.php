@@ -15,6 +15,6 @@ it('serializes explicit identifiers as numbers and produces stable name-specific
 
 it('infers function, static-method and instance-method identities from the caller', function (): void {
     expect(unitFunctionId()->value)->toBe(ExceptionId::for('RaxosTests\\Error\\unitFunctionId')->value)
-        ->and(UnitIdCaller::staticId()->value)->toBe(ExceptionId::for(UnitIdCaller::class.'::staticId')->value)
-        ->and(new UnitIdCaller()->instanceId()->value)->toBe(ExceptionId::for(UnitIdCaller::class.'->instanceId')->value);
+        ->and(UnitIdCaller::staticId()->value)->toBe(ExceptionId::for(UnitIdCaller::class . '::staticId')->value)
+        ->and(new UnitIdCaller()->instanceId()->value)->toBe(ExceptionId::for(UnitIdCaller::class . '->instanceId')->value);
 });

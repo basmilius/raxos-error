@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit bootstrap="tests/bootstrap.php" colors="true" cacheDirectory=".phpunit.cache" failOnWarning="true" failOnRisky="true" failOnDeprecation="true" failOnPhpunitDeprecation="true">
-    <testsuites><testsuite name="error"><directory suffix="Test.php">tests</directory></testsuite></testsuites>
-    <source><include><directory>src</directory></include></source>
-    <php><ini name="date.timezone" value="UTC"/></php>
+    <testsuites>
+        <testsuite name="error">
+            <directory suffix="Test.php">tests</directory>
+        </testsuite>
+    </testsuites>
+    <source>
+        <include>
+            <directory>src</directory>
+        </include>
+    </source>
+    <php>
+        <ini name="date.timezone" value="UTC"/>
+    </php>
 </phpunit>

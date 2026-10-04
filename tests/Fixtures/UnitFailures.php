@@ -9,15 +9,16 @@ enum UnitErrorCode: int
 {
     case CUSTOM = 42;
 }
-final class UnitError extends Exception
-{
-}
+
+final class UnitError extends Exception {}
+
 final class UnitIdCaller
 {
     public static function staticId(): ExceptionId
     {
         return ExceptionId::guess();
     }
+
     public function instanceId(): ExceptionId
     {
         return ExceptionId::guess();
