@@ -19,7 +19,7 @@ A common exception base with machine-readable error names, descriptions and nume
 Requires PHP 8.5 or later. Composer checks the remaining package and extension dependencies declared in [composer.json](composer.json).
 
 ```sh
-composer require "raxos/error:^3.2"
+composer require "raxos/error:^3.3"
 ```
 
 ## Usage
